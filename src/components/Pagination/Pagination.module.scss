@@ -1,0 +1,21 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 0 16px;
+  margin-top: 30px;
+  .numberPage {
+    font-size: 24px;
+    line-height: 34px;
+    color: #424242;
+    &.active { color: #33BC9D; }
+  }
+  .controlPagination {
+    width: 35px;
+    height: 35px;
+    background-image: url("../../assets/icons/arrow_pagination_icon.svg");
+    &.next {
+      transform: rotate(180deg);
+    }
+  }
+}

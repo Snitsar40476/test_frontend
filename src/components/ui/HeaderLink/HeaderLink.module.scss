@@ -1,0 +1,82 @@
+.headerLink {
+  font-weight: 700;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: rgba(19, 30, 41, 0.87);
+  &::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 8px;
+  }
+  &.telephone {
+    @media (max-width: 1200px) {
+      display: none;
+    }
+    &::before {
+      width: 24px;
+      height: 24px;
+      background-image: url("../../../assets/icons/telephone_icon.svg");
+    }
+  }
+  &.telephone_footer {
+    &::before {
+      width: 24px;
+      height: 24px;
+      background-image: url("../../../assets/icons/telephone_icon.svg");
+    }
+  }
+  &.login {
+    &::before {
+      width: 18px;
+      height: 18px;
+      background-image: url("../../../assets/icons/user_icon.svg");
+    }
+  }
+}
+
+.headerSocialLink {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  &.instagram {
+    background-image: url("../../../assets/icons/instagram_icon.svg");
+  }
+  &.facebook {
+    background-image: url("../../../assets/icons/facebook_icon.svg");
+  }
+  &.youtube {
+    height: 14px;
+    background-image: url("../../../assets/icons/youtube_icon.svg");
+  }
+}
+
+.headerNavLink {
+  display: flex;
+  align-items: center;
+  color: #131E29;
+  transition: 0.1s linear;
+  @media (max-width: 1200px) {
+    font-size: 13px;
+  }
+  svg {
+    width: 12px;
+    height: 22px;
+    margin-left: 12px;
+    transition: 0.2s linear;
+  }
+  &.active {
+    color: white;
+    background-color: #FFB600;
+    padding: 5px 11px;
+    box-shadow: 0 1px 5px 0 #0000001F;
+    svg {
+      transform: rotate(180deg);
+      path {
+        fill: white;
+      }
+    }
+  }
+}

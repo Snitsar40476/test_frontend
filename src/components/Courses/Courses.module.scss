@@ -1,0 +1,95 @@
+.coursesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 64px;
+  margin-bottom: 120px;
+  background-color: white;
+  box-shadow: 0 4px 15px 0 #70809633;
+  transition: max-height 0.4s;
+  max-height: 2000px;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 10000px;
+    margin-bottom: 100px;
+  }
+  @media (max-width: 874px) {
+    grid-template-columns: repeat(1, 1fr);
+    max-height: 5000px;
+    margin-bottom: 80px;
+  }
+  @media (max-width: 550px) {
+    margin-bottom: 40px;
+    padding: 25px 15px;
+    gap: 8px 0;
+  }
+  &.hide {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+  }
+  .courseItem {
+    padding: 24px;
+    border-radius: 8px;
+    border: 1.5px solid #D0D7DE;
+    @media (max-width: 550px) {
+      box-shadow: 0 4px 15px 0 #70809633;
+    }
+    .courseTitle {
+      display: flex;
+      align-items: center;
+      grid-gap: 0 8px;
+      margin-bottom: 24px;
+      &.green { color: #33BC9D; }
+      &.blue { color: #095FCC; }
+      &.violet { color: #5151F7; }
+      &.yellow { color: #FFB600; }
+      &.pink { color: #F86A85; }
+      &.turquoise { color: #2D9EC7; }
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        img {
+          width: 10px;
+          height: 10px;
+        }
+        &.green { background-color: #33BC9D; }
+        &.blue { background-color: #095FCC; }
+        &.violet { background-color: #5151F7; }
+        &.yellow { background-color: #FFB600; }
+        &.pink { background-color: #F86A85; }
+        &.turquoise { background-color: #2D9EC7; }
+      }
+      text-transform: uppercase;
+    }
+  }
+  .mobileFooter {
+    width: 100%;
+    position: fixed;
+    height: 75px;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    padding: 0 20px;
+    z-index: 1000000;
+    background-color: white;
+    border-top: 1px solid #FFB600;
+    .footer__socials {
+      display: flex;
+      align-items: center;
+      grid-gap: 0 24px;
+    }
+    @media (max-width: 860px) {
+      display: flex;
+    }
+  }
+}

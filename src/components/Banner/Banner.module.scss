@@ -1,0 +1,110 @@
+.banner {
+  position: relative;
+  padding: 0 64px 32px 64px;
+  background-color: #F4F9FF;
+  @media (max-width: 1200px) {
+    padding: 0 144px 30px 144px;
+  }
+  @media (max-width: 720px) {
+    padding: 0 50px 30px 50px;
+  }
+  @media (max-width: 550px) {
+    padding: 0 15px 20px 15px;
+  }
+  .bannerContent {
+    display: flex;
+    grid-gap: 0 17px;
+    position: relative;
+    @media (max-width: 992px) {
+      display: block;
+    }
+  }
+  .bannerInfo {
+    flex-basis: 45%;
+    flex-shrink: 0;
+    @media (max-width: 992px) {
+      display: block;
+    }
+    .bannerTitle {
+      font-size: 98px;
+      font-weight: 700;
+      line-height: 100px;
+      color: #131E29;
+      @media (max-width: 1200px) {
+        font-size: 42px;
+        line-height: 42px;
+      }
+      @media (max-width: 550px) {
+        font-size: 36px;
+        line-height: 40px;
+      }
+    }
+    .bannerText  {
+      margin-top: 40px;
+      font-size: 24px;
+      line-height: 34px;
+      font-weight: 600;
+      color: #424242;
+      @media (max-width: 1200px) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      @media (max-width: 992px) {
+        margin-top: 25px;
+      }
+      @media (max-width: 550px) {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+    .bannerControls {
+      margin-top: 82px;
+      display: flex;
+      align-items: center;
+      grid-gap: 0 30px;
+      @media (max-width: 1200px) {
+        margin-top: 62px;
+      }
+      @media (max-width: 992px) {
+        margin-top: 50px;
+      }
+      @media (max-width: 550px) {
+        justify-content: space-between;
+        grid-gap: 0;
+      }
+    }
+    @media (max-width: 992px) {
+      margin-bottom: 25px;
+    }
+  }
+  .arrowDown {
+    width: 27px;
+    height: 42px;
+    margin: 25px auto 0 auto;
+    background-image: url("../../assets/icons/arrow_down.svg");
+    background-size: contain;
+    cursor: pointer;
+    @media (max-width: 550px) {
+      width: 15px;
+      height: 24px;
+    }
+  }
+}
+
+.bannerLink {
+  padding: 15px 22px;
+  font-weight: 700;
+  color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+  box-shadow: 0 1px 5px 0 #0000001F;
+  &.blue { background-color: #095FCC; }
+  &.yellow { background-color: #FFB600; }
+  @media (max-width: 1200px) {
+    padding: 13px 16px;
+  }
+  @media (max-width: 550px) {
+    padding: 12px 30px;
+    font-size: 15px;
+  }
+}

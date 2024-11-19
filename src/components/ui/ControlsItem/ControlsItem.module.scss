@@ -1,0 +1,17 @@
+.controlsItem {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  &.upload {
+    background-image: url("../../../assets/icons/upload_icon.svg");
+    cursor: pointer;
+    input { display: none; }
+  }
+  &.trash { background-image: url("../../../assets/icons/trash_icon.svg") }
+  &.edit { background-image: url("../../../assets/icons/edit_icon.svg") }
+  &.download { background-image: url("../../../assets/icons/download_icon.svg") }
+  &.shared { background-image: url("../../../assets/icons/shared_icon.svg") }
+  &.search { background-image: url("../../../assets/icons/search_icon.svg") }
+}
