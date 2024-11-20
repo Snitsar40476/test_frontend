@@ -2,9 +2,10 @@ import classes from './Files.module.scss';
 import ControlsItem from "../ui/ControlsItem/ControlsItem.tsx";
 import {
     useDeleteAllFilesMutation,
-    useLazyDownloadFileQuery, useLazyGetFilesSortingDateAscQuery, useLazyGetFilesSortingDateDescQuery,
-    useLazyGetFilesSortingNameAscQuery,
-    useLazyGetFilesSortingNameDescQuery, useSetNameFilesMutation,
+    useLazyDownloadFileQuery,
+    useLazyGetFilesSortingDateQuery,
+    useLazyGetFilesSortingNameQuery,
+    useSetNameFilesMutation,
     useUploadFileMutation
 } from "../../api/fileApi.ts";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
@@ -30,10 +31,8 @@ const Controls = () => {
     const sortingMode = sorting.currentMode;
     const dispatch = useDispatch();
 
-    const [sortingNameAsc] = useLazyGetFilesSortingNameAscQuery();
-    const [sortingNameDesc] = useLazyGetFilesSortingNameDescQuery();
-    const [sortingDateAsc] = useLazyGetFilesSortingDateAscQuery();
-    const [sortingDateDesc] = useLazyGetFilesSortingDateDescQuery();
+    const [sortingName] = useLazyGetFilesSortingNameQuery();
+    const [sortingDate] = useLazyGetFilesSortingDateQuery();
     const [setNames, { isLoading: loadingSetNames }] = useSetNameFilesMutation();
 
     const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -96,18 +95,8 @@ const Controls = () => {
         const sortingHandler = async () => {
             switch (sorting.currentMethod) {
                 case 'name': {
-                    if (sortingMode === 'asc') {
-                        try {
-                            await sortingNameAsc({ page: currentPage }).unwrap();
-                        } catch (error) {
-                            alert('Помилка при сортуваннi');
-                            console.log(error);
-                        }
-                        return false;
-                    }
-
                     try {
-                        await sortingNameDesc({ page: currentPage }).unwrap();
+                        await sortingName({ page: currentPage, order: sortingMode }).unwrap();
                     } catch (error) {
                         alert('Помилка при сортуваннi');
                         console.log(error);
@@ -115,18 +104,8 @@ const Controls = () => {
                     return false;
                 }
                 case 'date': {
-                    if (sortingMode === 'asc') {
-                        try {
-                            await sortingDateAsc({ page: currentPage }).unwrap();
-                        } catch (error) {
-                            alert('Помилка при сортуваннi');
-                            console.log(error);
-                        }
-                        return false;
-                    }
-
                     try {
-                        await sortingDateDesc({ page: currentPage }).unwrap();
+                        await sortingDate({ page: currentPage, order: sortingMode }).unwrap();
                     } catch (error) {
                         alert('Помилка при сортуваннi');
                         console.log(error);

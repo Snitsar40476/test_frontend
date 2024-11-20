@@ -110,10 +110,10 @@ export const fileApi = createApi({
                 }
             }
         }),
-        getFilesSortingNameAsc: builder.query<IResponseGetFiles, { page: number; }>({
+        getFilesSortingName: builder.query<IResponseGetFiles, { page: number, order: string; }>({
             query(data) {
                 return {
-                    url: 'getFilesSortingNameAsc',
+                    url: 'getFilesSortingName',
                     method: 'GET',
                     params: data,
                 };
@@ -127,44 +127,10 @@ export const fileApi = createApi({
                 }
             },
         }),
-        getFilesSortingDateDesc: builder.query<IResponseGetFiles, { page: number; }>({
+        getFilesSortingDate: builder.query<IResponseGetFiles, { page: number, order: string; }>({
             query(data) {
                 return {
-                    url: 'getFilesSortingDateDesc',
-                    method: 'GET',
-                    params: data
-                };
-            },
-            providesTags: ['Files'],
-            async onQueryStarted(args, { dispatch, queryFulfilled }) {
-                const { data } = await queryFulfilled;
-
-                if (data) {
-                    dispatch(setFiles(data.data));
-                }
-            },
-        }),
-        getFilesSortingNameDesc: builder.query<IResponseGetFiles, { page: number; }>({
-            query(data) {
-                return {
-                    url: 'getFilesSortingNameDesc',
-                    method: 'GET',
-                    params: data,
-                };
-            },
-            providesTags: ['Files'],
-            async onQueryStarted(args, { dispatch, queryFulfilled }) {
-                const { data } = await queryFulfilled;
-
-                if (data) {
-                    dispatch(setFiles(data.data));
-                }
-            },
-        }),
-        getFilesSortingDateAsc: builder.query<IResponseGetFiles, { page: number; }>({
-            query(data) {
-                return {
-                    url: 'getFilesSortingDateAsc',
+                    url: 'getFilesSortingDate',
                     method: 'GET',
                     params: data,
                 };
@@ -183,10 +149,8 @@ export const fileApi = createApi({
 
 export const {
     useUploadFileMutation,
-    useLazyGetFilesSortingDateAscQuery,
-    useLazyGetFilesSortingDateDescQuery,
-    useLazyGetFilesSortingNameDescQuery,
-    useLazyGetFilesSortingNameAscQuery,
+    useLazyGetFilesSortingDateQuery,
+    useLazyGetFilesSortingNameQuery,
     useLazyDownloadFileQuery,
     useLazyUpdatePageQuery,
     useDeleteFileMutation,
